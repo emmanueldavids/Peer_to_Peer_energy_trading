@@ -1,5 +1,5 @@
 """
-WSGI config for energy_transfer project.
+WSGI config for Future_Of_Energy project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'energy_transfer.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Future_Of_Energy.settings')
 
 application = get_wsgi_application()
