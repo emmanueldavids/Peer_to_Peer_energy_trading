@@ -25,19 +25,20 @@ SECRET_KEY = '@-_tbw1m3s=ho72ker3k%jvnsp338*8dp*l*#w@$6rx(*zx5rj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '192.168.43.139']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'energy_trading',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'energy_trading',
 ]
 
 MIDDLEWARE = [
