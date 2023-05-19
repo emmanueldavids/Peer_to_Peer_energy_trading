@@ -1,5 +1,5 @@
 body {
-  background: #fff;
+  background: #000000;
   font-family: "Rubik", arial, sans-serif;
   font-weight: 300;
   font-size: 15px;
@@ -161,8 +161,11 @@ header .navbar.navbar-light .nav-link.active {
 }
 
 .site-hero.overlay {
+  /* background-color: #17a2b8; */
   position: relative;
+  
 }
+
 
 .site-hero.overlay:before {
   content: "";
@@ -175,6 +178,15 @@ header .navbar.navbar-light .nav-link.active {
   right: 0;
   bottom: 0;
 }
+
+/* video{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} */
 
 .site-hero.overlay h1, .site-hero.overlay p {
   color: #fff;
@@ -1507,6 +1519,7 @@ textarea.form-control {
 .element-animate {
   opacity: 0;
   visibility: hidden;
+  /* padding: 5px 100px; */
 }
 
 #loader {
