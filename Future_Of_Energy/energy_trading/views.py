@@ -7,3 +7,6 @@ def landing_Page(request):
 
 def about_page(request):
     return render(request, 'energy_trading/about.html')
+
+def contact_page(request):
+    return render(request, 'energy_trading/contact.html')
