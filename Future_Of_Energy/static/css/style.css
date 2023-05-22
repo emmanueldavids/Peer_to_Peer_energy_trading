@@ -1295,15 +1295,16 @@ textarea.form-control {
   padding: 40px;
 }
 
-.site-footer {
-  padding: 5em 10;
+
+/* .site-footer {
+  padding: 5em 0;
   background: #f2f2f2;
   font-size: 16px;
-}
+} */
 
-.site-footer h3 {
+/* .site-footer h3 {
   margin-bottom: 20px;
-  font-family: "Rubi", arial, sans-serif;
+  font-family: "Rubik", arial, sans-serif;
   font-size: 13px;
   letter-spacing: .2em;
   color: #b3b3b3;
@@ -1343,7 +1344,7 @@ textarea.form-control {
 
 .site-footer hr {
   width: 100%;
-}
+} */
 
 .subscribe .form-group {
   position: relative;
@@ -1616,5 +1617,3 @@ textarea.form-control {
     stroke-dashoffset: -136px;
   }
 }
-
-
