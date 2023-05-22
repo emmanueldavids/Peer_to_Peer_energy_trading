@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <link rel="stylesheet" href="{% static 'css/dev.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+
 
     <!-- Theme Style -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -29,7 +31,7 @@
      
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
           <div class="container">
-            <a class="navbar-brand" href="{% url 'index' %}">LuxuryHotel</a>
+            <a class="navbar-brand" href="{% url 'index' %}">GreenTrade</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -74,53 +76,21 @@
     {% block content %}
     {% endblock %}
 
+       
+    <footer>
+      <div class="footer-content">
+        <h3>GreenTrade</h3>
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem iusto itaque voluptate alias fugit distinctio ut nostrum nam officia consequuntur unde deserunt perferendis eveniet, et optio rerum ratione. Possimus, dignissimos.</p>
+        <p>Foolish Developer —  source code.</p>
+        
+      </div>
 
-    <footer class="site-footer">
-        <div class="container">
-          <div class="row mb-5">
-            <div class="col-md-4">
-              <h3>Phone Numbers</h3>
-              <p>Call us now.</p>
-              <p class="lead"><a href="tel://">+ 233 553502771</a></p>
-              <p class="lead"><a href="tel://">+ 233 592140092</a></p>
+      <div class="footer-bottom">
+        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This is developed to help avoid<i class="fa fa-heart-o" aria-hidden="true"></i><a href="https://climateknowledgeportal.worldbank.org" target="_blank">Climate change</a>
+      </div>
+    </footer>
 
-            </div>
-            <div class="col-md-4">
-              <h3>Connect With Us</h3>
-              <p>We are socialized. Follow us</p>
-              <p>
-                <ul class="social-icons">
-                  <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                  <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                  <li><a href="#"><i class="fab fa-github"></i></a></li>
-                </ul>
-              </p>
-            </div>
-            <div class="col-md-4">
-              <h3>Connect With Us</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, odio.</p>
-              <form action="#" class="subscribe">
-                <div class="form-group">
-                  <input type="email" class="form-control" placeholder="email">
-                  <button type="submit"><span class="ion-ios-arrow-thin-right"></span></button>
-                </div>
-                
-              </form>
-            </div>
-          </div>
-          <div class="row justify-content-center">
-            <div class="col-md-7 text-center">
-  
-          Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This is developed to help avoid<i class="fa fa-heart-o" aria-hidden="true"></i><a href="https://climateknowledgeportal.worldbank.org" target="_blank">Climate change</a>
-  
-            </div>
-          </div>
-        </div>
-      </footer>
-      <!-- END footer -->
-      
-      <!-- loader -->
-      <div id="loader" class="show fullscreen"><svg class="circular" width="40px" height="40px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
+    <div id="loader" class="show fullscreen"><svg class="circular" width="40px" height="40px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
   
 
     <script src="{% static 'energy_trading/js/jquery-3.2.1.min.js' %}"></script>
