@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'energy_trading',
     'account',
+    'payment_wallet',
+    'trade_dashboard',
 ]
 
 MIDDLEWARE = [
