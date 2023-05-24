@@ -8,3 +8,4 @@ def signin(request):
 
 def signup(request):
     return render(request, 'account/signup.html')
+
