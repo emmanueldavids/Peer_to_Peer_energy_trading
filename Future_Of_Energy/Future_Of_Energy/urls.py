@@ -20,4 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('energy_trading.urls')),
     path('account/', include('account.urls')),
+    path('wallet/', include('payment_wallet.urls')),
+    path('dashboard/', include('trade_dashboard.urls')),
 ]
