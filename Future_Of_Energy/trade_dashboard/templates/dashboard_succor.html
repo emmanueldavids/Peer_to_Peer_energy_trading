@@ -66,7 +66,7 @@
             </li>
 
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+              <a class="sidebar-link" href="{% url 'prices' %}" aria-expanded="false">
                 <span>
                   <i class="ti ti-receipt"></i>
                 </span>
@@ -75,7 +75,7 @@
             </li>
 
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-forms.html" aria-expanded="false">
+              <a class="sidebar-link" href="{% url 'sell' %}" aria-expanded="false">
                 <span>
                   <i class="ti ti-battery-4"></i>
                 </span>
@@ -83,7 +83,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-typography.html" aria-expanded="false">
+              <a class="sidebar-link" href="{% url 'feeds' %}" aria-expanded="false">
                 <span>
                   <i class="ti ti-article"></i>
                 </span>
@@ -115,7 +115,7 @@
               <span class="hide-menu">PAYMENTS</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./icon-tabler.html" aria-expanded="false">
+              <a class="sidebar-link" href="{% url 'wallet' %}" aria-expanded="false">
                 <span>
                   <i class="ti ti-currency-bitcoin"></i>
                 </span>
@@ -123,7 +123,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./sample-page.html" aria-expanded="false">
+              <a class="sidebar-link" href="{% url 'transactions' %}" aria-expanded="false">
                 <span>
                   <i class="ti ti-brand-pocket"></i>
                 </span>
@@ -190,7 +190,7 @@
         </nav>
       </header>
       <!--  Header End -->
-      
+    
       {% block body %}
       {% endblock %}
     </div>

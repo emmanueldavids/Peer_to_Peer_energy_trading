@@ -11,12 +11,12 @@ Dashboard
       <div class="container-fluid">
         <!--  Row 1 -->
         <div class="row">
-          <div class="col-lg-8 d-flex align-items-strech">
+          <div class="col-lg-8 d-flex align-items-strech" align="center">
             <div class="card w-100">
               <div class="card-body">
                 <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
                   <div class="mb-3 mb-sm-0">
-                    <h5 class="card-title fw-semibold">Sales Overview</h5>
+                    <h5 class="card-title fw-semibold">Account Overview</h5>
                   </div>
                   <div>
                     <select class="form-select">
@@ -29,6 +29,13 @@ Dashboard
                 </div>
                 <!-- chartt -->
                 <div id="chart"></div>
+                <div class="image-with-tex">
+                  <img src="{% static 'images/profile/user-1.jpg' %}" align="center" width="150" height="150" class="rounded-circle"><br/>
+                  <br><h6 style="float: center; margin-right: 10px;">UserID</h6>
+                  <p> AnonyUser78976535</p>
+                  <h6 >User Type:</h6> <p> Regular User </p>
+
+                </div>
               </div>
             </div>
           </div>
@@ -39,10 +46,10 @@ Dashboard
                 <!-- Yearly Breakup -->
                 <div class="card overflow-hidden">
                   <div class="card-body p-4">
-                    <h5 class="card-title mb-9 fw-semibold">Yearly Breakup</h5>
+                    <h5 class="card-title mb-9 fw-semibold">Estimated Crypto Balance</h5>
                     <div class="row align-items-center">
                       <div class="col-8">
-                        <h4 class="fw-semibold mb-3">$36,358</h4>
+                        <h4 class="fw-semibold mb-3">0.00 BTC</h4>
                         <div class="d-flex align-items-center mb-3">
                           <span
                             class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
@@ -77,8 +84,8 @@ Dashboard
                   <div class="card-body">
                     <div class="row alig n-items-start">
                       <div class="col-8">
-                        <h5 class="card-title mb-9 fw-semibold"> Monthly Earnings </h5>
-                        <h4 class="fw-semibold mb-3">$6,820</h4>
+                        <h5 class="card-title mb-9 fw-semibold"> Rewards </h5>
+                        <h4 class="fw-semibold mb-3">0.00 BTC</h4>
                         <div class="d-flex align-items-center pb-1">
                           <span
                             class="me-2 rounded-circle bg-light-danger round-20 d-flex align-items-center justify-content-center">
@@ -104,8 +111,9 @@ Dashboard
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-4 d-flex align-items-stretch">
+        
+         <!-- <div class="row"> -->
+          <!--<div class="col-lg-4 d-flex align-items-stretch">
             <div class="card w-100">
               <div class="card-body p-4">
                 <div class="mb-4">
@@ -167,112 +175,149 @@ Dashboard
                 </ul>
               </div>
             </div>
-          </div>
-          <div class="col-lg-8 d-flex align-items-stretch">
+          </div> -->
+          <!-- <div class="col-lg-8 d-flex align-items-stretch"> -->
             <div class="card w-100">
               <div class="card-body p-4">
-                <h5 class="card-title fw-semibold mb-4">Recent Transactions</h5>
+                <h5 class="card-title fw-semibold mb-4" align="center">Energy Markets Lists</h5>
                 <div class="table-responsive">
                   <table class="table text-nowrap mb-0 align-middle">
                     <thead class="text-dark fs-4">
                       <tr>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Id</h6>
+                          <h6 class="fw-semibold mb-0">User ID</h6>
                         </th>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Assigned</h6>
+                          <h6 class="fw-semibold mb-0">Volume</h6>
                         </th>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Name</h6>
+                          <h6 class="fw-semibold mb-0">Price</h6>
                         </th>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Priority</h6>
+                          <h6 class="fw-semibold mb-0">Availability</h6>
                         </th>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Budget</h6>
-                        </th>
+                          <h6 class="fw-semibold mb-0">Count Down</h6>
+                        </th>   
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">1</h6></td>
+                        <td class="border-bottom-0"><h6 class="fw-normal">729341790</h6></td>
                         <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1">Sunil Joshi</h6>
-                            <span class="fw-normal">Web Designer</span>                          
+                          <h6 class="fw-normal">400KW</h6>
                         </td>
                         <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal">Elite Admin</p>
+                          <h6 class="fw-normal">$3.9</h6>
                         </td>
                         <td class="border-bottom-0">
                           <div class="d-flex align-items-center gap-2">
-                            <span class="badge bg-primary rounded-3 fw-semibold">Low</span>
+                            <span class="badge bg-primary rounded-3 fw-semibold">1 hour</span>
                           </div>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">$3.9</h6>
+                          <h6 class="fw-normal">12:00</h6>
+                        </td>
+                        <td class="border-bottom-0">
+                          <h6 class="fw-semibold">Trade</h6>
                         </td>
                       </tr> 
                       <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">2</h6></td>
+                        <td class="border-bottom-0"><h6 class="fw-normal">729341790</h6></td>
                         <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1">Andrew McDownland</h6>
-                            <span class="fw-normal">Project Manager</span>                          
+                          <h6 class="fw-normal">400KW</h6>
                         </td>
                         <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal">Real Homes WP Theme</p>
+                          <h6 class="fw-normal">$3.9</h6>
                         </td>
                         <td class="border-bottom-0">
                           <div class="d-flex align-items-center gap-2">
-                            <span class="badge bg-secondary rounded-3 fw-semibold">Medium</span>
+                            <span class="badge bg-primary rounded-3 fw-semibold">1 hour</span>
                           </div>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">$24.5k</h6>
+                          <h6 class="fw-normal">12:00</h6>
+                        </td>
+                        <td class="border-bottom-0">
+                          <h6 class="fw-semibold">Trade</h6>
                         </td>
                       </tr> 
                       <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">3</h6></td>
+                        <td class="border-bottom-0"><h6 class="fw-normal">729341790</h6></td>
                         <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1">Christopher Jamil</h6>
-                            <span class="fw-normal">Project Manager</span>                          
+                          <h6 class="fw-normal">400KW</h6>
                         </td>
                         <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal">MedicalPro WP Theme</p>
+                          <h6 class="fw-normal">$3.9</h6>
                         </td>
                         <td class="border-bottom-0">
                           <div class="d-flex align-items-center gap-2">
-                            <span class="badge bg-danger rounded-3 fw-semibold">High</span>
+                            <span class="badge bg-primary rounded-3 fw-semibold">1 hour</span>
                           </div>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">$12.8k</h6>
+                          <h6 class="fw-normal">12:00</h6>
                         </td>
-                      </tr>      
+                        <td class="border-bottom-0">
+                          <h6 class="fw-semibold">Trade</h6>
+                        </td>
+                      </tr>     
                       <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">4</h6></td>
+                        <td class="border-bottom-0"><h6 class="fw-normal">729341790</h6></td>
                         <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1">Nirav Joshi</h6>
-                            <span class="fw-normal">Frontend Engineer</span>                          
+                          <h6 class="fw-normal">400KW</h6>
                         </td>
                         <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal">Hosting Press HTML</p>
+                          <h6 class="fw-normal">$3.9</h6>
                         </td>
                         <td class="border-bottom-0">
                           <div class="d-flex align-items-center gap-2">
-                            <span class="badge bg-success rounded-3 fw-semibold">Critical</span>
+                            <span class="badge bg-primary rounded-3 fw-semibold">1 hour</span>
                           </div>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">$2.4k</h6>
+                          <h6 class="fw-normal">12:00</h6>
                         </td>
-                      </tr>                       
+                        <td class="border-bottom-0">
+                          <h6 class="fw-semibold">Trade</h6>
+                        </td>
+                      </tr>                 
                     </tbody>
                   </table>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        
+          <div class="card">
+            <div class="card-body">
+              <div class="row alig n-items-start">
+                <div class="col-8">
+                  <h5 class="card-title mb-9 fw-semibold"> Monthly Earnings </h5>
+                  <h4 class="fw-semibold mb-3">$6,820</h4>
+                  <div class="d-flex align-items-center pb-1">
+                    <span
+                      class="me-2 rounded-circle bg-light-danger round-20 d-flex align-items-center justify-content-center">
+                      <i class="ti ti-arrow-down-right text-danger"></i>
+                    </span>
+                    <p class="text-dark me-1 fs-3 mb-0">+9%</p>
+                    <p class="fs-3 mb-0">last year</p>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="d-flex justify-content-end">
+                    <div
+                      class="text-white bg-secondary rounded-circle p-6 d-flex align-items-center justify-content-center">
+                      <i class="ti ti-currency-dollar fs-6"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="earning"></div>
+          </div>
+
+
         <div class="row">
           <div class="col-sm-6 col-xl-3">
             <div class="card overflow-hidden rounded-2">
