@@ -1,0 +1,59 @@
+{% extends 'user-auth_succor.html'%}
+
+{% load static %}
+
+
+
+{% block content %}
+
+
+
+    <p class="text-center">Your Social Campaigns</p>
+
+    
+    <div class="container">
+    {% if messages %}
+        {% for message in messages %}
+            <b><div align="center" class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">{{ message }}</div></b>
+        {% endfor %}
+    
+    {% endif %}
+    </div>
+
+
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        
+        <div class="mb-3">
+        <label for="{{ form.username.id_for_label }}" class="form-label">Username</label>
+        {{ form.username }}
+        </div>
+
+        <div class="mb-4">
+        <label for="{{ form.password.id_for_label }}" class="form-label">Password</label>
+        {{ form.password }}
+        </div>
+
+        <div class="d-flex align-items-center justify-content-between mb-4">
+        <div class="form-check">
+            <input class="form-check-input primary" type="checkbox" value="" id="flexCheckChecked" checked>
+            <label class="form-check-label text-dark" for="flexCheckChecked">
+            Remeber this Device
+            </label>
+        </div>
+        <a class="text-primary fw-bold" href="./index.html">Forgot Password ?</a>
+        </div>
+        <button class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" type="submit">Sign In</button>
+        <div class="d-flex align-items-center justify-content-center">
+        <p class="fs-4 mb-0 fw-bold">New to Modernize?</p>
+        <a class="text-primary fw-bold ms-2" href="{% url 'register' %}">Create an account</a>
+        </div>
+    </form>
+
+    
+
+    
+   
+              
+{% endblock %}
