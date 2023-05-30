@@ -10,3 +10,4 @@ def about_page(request):
 
 def contact_page(request):
     return render(request, 'energy_trading/contact.html')
+
