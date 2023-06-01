@@ -1,6 +1,12 @@
 from django.urls import path
 from . import views
 
+
+""" This is the application urls that defines the route to the
+    resources path in views.
+""" 
+
+
 urlpatterns = [
     path('', views.wallet_details, name='wallet-details'),
     path('trade', views.trade, name='trade'),
