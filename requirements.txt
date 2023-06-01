@@ -6,4 +6,5 @@ flake8==6.0.0
 setuptools
 django-crispy-forms
 django-widget-tweaks
+python-dotenv
 # Pillow==8.3.2
