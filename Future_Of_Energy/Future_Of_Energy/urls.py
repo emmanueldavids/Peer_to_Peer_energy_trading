@@ -16,6 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+
+""" This is the project defined urls that specify the 
+    path to load the resources.
+"""
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('energy_trading.urls')),
