@@ -1,8 +1,14 @@
 from django.shortcuts import render
+from django.contrib import messages
 
 
-def dashboard(request):
-    return render(request, 'dashboard/index.html')
+
+def wallet_details(request):
+    return render(request, 'wallet-info/wallet-details.html', {'message': messages})
+    
+
+def trade(request):
+    return render(request, 'dashboard/trade.html')
 
 
 def alert(request):

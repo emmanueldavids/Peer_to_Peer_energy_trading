@@ -16,7 +16,7 @@ def signin(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('dashboard')
+                return redirect('wallet-details')
             else:
                 messages.info(request, 'Invalid username or password.')
         else:
@@ -41,7 +41,7 @@ def register(request):
                 password = form.cleaned_data['password1']
                 user = authenticate(request, username=username, email=email, password=password)
                 login(request, user)
-                return redirect('dashboard')
+                return redirect('wallet-details')
             except IntegrityError and KeyError:
                 messages.info(request, 'Invalid entries, try again')
 
