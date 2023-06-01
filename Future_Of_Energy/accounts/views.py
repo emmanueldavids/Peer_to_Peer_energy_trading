@@ -5,8 +5,15 @@ from django.contrib import messages
 from django.db import IntegrityError
 
 
+""" This contains the definitions of the user sigin and register
+    methods. 
+    The signin() method and the register() method
+"""
+
 
 def signin(request):
+    """ This method defines the signin method and user input sanitization """
+
     if request.method == 'POST':
         form = Signin_Form(request.POST)
         
@@ -31,6 +38,8 @@ def signin(request):
 
 
 def register(request):
+    """ This method defines the register method and user input sanitization """
+
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():

@@ -4,9 +4,16 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 
+""" Importing and applying the form definitions for 
+    User Creation, login and Authentication
+"""
 
 
 class Signin_Form(forms.Form):
+    """ This class represents the signin form for the user
+        with all the authentication methods injected into it.
+    """
+
     username = forms.CharField(label="Email", max_length=100, widget=forms.TextInput(attrs={
         'placeholder': 'Enter UserName', 
         'class': 'form-control'
@@ -20,10 +27,10 @@ class Signin_Form(forms.Form):
 
 
 class RegisterForm(UserCreationForm):
-    error_messages = {
-        'username_taken': 'This username is already taken.',
-        'password_too_short': 'Password should be at least 8 characters long.',
-    }
+    """ This class represents the user creation form 
+        with all the authentication methods injected into it.
+    """
+
     username = forms.CharField(max_length=100, widget=forms.TextInput(attrs={
             'placeholder': 'User Name',
             'class': 'form-control'
@@ -47,6 +54,8 @@ class RegisterForm(UserCreationForm):
 
     
     class Meta:
+        """ This is the Meta class for the User model."""
+
         model = User
         fields = ['username','email', 'password1', 'password2']
     
