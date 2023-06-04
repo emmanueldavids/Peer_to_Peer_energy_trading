@@ -1,0 +1,32 @@
+{% extends 'dashboard_succor.html'%}
+
+{% block title %} logs {% endblock %}
+
+{% load static %}
+
+{% block body %}
+<div class="card w-100">
+  <div class="card-body p-4">
+    <h5 class="card-title fw-semibold mb-4" align="center">Logs</h5>
+    <div class="table-responsive">
+      <table class="table text-nowrap mb-0 align-middle">
+        <thead class="text-dark fs-4">
+          <tr>
+            <th class="border-bottom-0">
+              <h6 class="fw-semibold mb-0">User ID</h6>
+            </th>
+            <th class="border-bottom-0">
+              <h6 class="fw-semibold mb-0">Volume</h6>
+            </th>
+            <th class="border-bottom-0">
+              <h6 class="fw-semibold mb-0">Price</h6>
+            </th>
+            <th class="border-bottom-0">
+              <h6 class="fw-semibold mb-0">Availability</h6>
+            </th>
+            <th class="border-bottom-0">
+              <h6 class="fw-semibold mb-0">Count Down</h6>
+            </th>   
+          </tr>
+        </thead>
+{% endblock %}
