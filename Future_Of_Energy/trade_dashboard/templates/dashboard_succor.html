@@ -20,7 +20,7 @@
       <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-          <a href="{% url 'trade' %}" class="text-nowrap logo-img">
+          <a href="{% url 'market-data' %}" class="text-nowrap logo-img">
             <img src="{% static 'images/logos/dark-logo.svg' %}" width="180" alt="" />
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
@@ -35,12 +35,21 @@
               <span class="hide-menu">Market</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="{% url 'trade' %}" aria-expanded="false">
+              <a class="sidebar-link" href="{% url 'market-data' %}" aria-expanded="false">
                 <span>
                   <i class="ti ti-layout-dashboard"></i>
                 </span>
                 <span class="hide-menu">Dashboard</span>
               </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{% url 'trade' %}" aria-expanded="false">
+                  <span>
+                    <i class="ti ti-layout-dashboard"></i>
+                  </span>
+                  <span class="hide-menu">Trade</span>
+                </a>
             </li>
             
             <li class="sidebar-item">

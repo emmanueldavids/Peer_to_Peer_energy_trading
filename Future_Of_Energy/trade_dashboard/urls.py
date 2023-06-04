@@ -8,11 +8,12 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.wallet_details, name='wallet-details'),
+    # path('', views.wallet_details, name='wallet-details'),
+    path('', views.market_data, name='market-data'),
     path('trade', views.trade, name='trade'),
     # path('alert', views.alert, name='alert'),    
     # path('prices', views.prices, name='prices'),
-    # path('sell', views.sell_energy, name='sell'),
+    # path('market-data', views.market_data, name='market-data'),
     path('feeds', views.feeds, name='feeds'),
     path('wallet', views.wallet, name='wallet'),
     path('transactions', views.transactions, name='transactions'),

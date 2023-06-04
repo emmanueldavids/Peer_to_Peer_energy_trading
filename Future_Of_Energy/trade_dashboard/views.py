@@ -79,10 +79,10 @@ def trade(request):
 #     return render(request, 'dashboard/prices.html')
 
 
-# def sell_energy(request):
-#     """ The sell_energy option for the p2p exchange"""
+def market_data(request):
+    """ returns the market data"""
 
-#     return render(request, 'dashboard/sell-energy.html')
+    return render(request, 'dashboard/market-data.html')
 
 
 def feeds(request):

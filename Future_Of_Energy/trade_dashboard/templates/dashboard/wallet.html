@@ -111,116 +111,39 @@
   </div>
   
    
-  <div class="card w-100">
-    <div class="card-body p-4">
-      <h5 class="card-title fw-semibold mb-4" align="center">Energy Markets Lists</h5>
-      <div class="table-responsive">
-        <table class="table text-nowrap mb-0 align-middle">
-          <thead class="text-dark fs-4">
-            <tr>
-              <th class="border-bottom-0">
-                <h6 class="fw-semibold mb-0">Timestamp</h6>
-              </th>
-              <th class="border-bottom-0">
-                <h6 class="fw-semibold mb-0">Wallet</h6>
-              </th>
-              <th class="border-bottom-0">
-                <h6 class="fw-semibold mb-0"> Current Balance</h6>
-              </th>
-              <th class="border-bottom-0">
-                <h6 class="fw-semibold mb-0">Deduction </h6>
-              </th>
-              <th class="border-bottom-0">
-                <h6 class="fw-semibold mb-0">Transactions</h6>
-              </th>   
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="border-bottom-0"><h6 class="fw-normal">729341790</h6></td>
-              <td class="border-bottom-0">
-                <h6 class="fw-normal">400KW</h6>
-              </td>
-              <td class="border-bottom-0">
-                <h6 class="fw-normal">$3.9</h6>
-              </td>
-              <td class="border-bottom-0">
-                <div class="d-flex align-items-center gap-2">
-                  <span class="badge bg-primary rounded-3 fw-semibold">1 hour</span>
+  <div class="container-fluid">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+
+            <div class="col-md-4" align="center">
+
+              <h5 class="card-title fw-semibold mb-4" align="center">Buy Energy Today</h5>
+              <div class="card">
+                <!-- <img src="{% static 'images/products/p2p.png' %}" class="card-img-top" alt="..."> -->
+                <div class="card-body">
+
+                  <button type="submit" class="btn btn-outline-primary" align="center"><a href="{% url 'trade' %}">Buy Now</a></button>
                 </div>
-              </td>
-              <td class="border-bottom-0">
-                <h6 class="fw-normal">12:00</h6>
-              </td>
-              <td class="border-bottom-0">
-                <button type="button" class="btn btn-outline-success m-1"><a href="{% url 'trade' %}">Trade</a></button>
-              </td>
-            </tr> 
-            <tr>
-              <td class="border-bottom-0"><h6 class="fw-normal">729341790</h6></td>
-              <td class="border-bottom-0">
-                <h6 class="fw-normal">400KW</h6>
-              </td>
-              <td class="border-bottom-0">
-                <h6 class="fw-normal">$3.9</h6>
-              </td>
-              <td class="border-bottom-0">
-                <div class="d-flex align-items-center gap-2">
-                  <span class="badge bg-primary rounded-3 fw-semibold">1 hour</span>
+              </div>
+            </div>
+
+
+            <div class="col-md-4" align="center">
+              <h5 class="card-title fw-semibold mb-4">Sell Energy Today</h5>
+              <div class="card">
+                <!-- <img src="{% static 'images/products/p2p.png' %}" class="card-img-top" alt="..."> -->
+                <div class="card-body">
+                  <button type="submit" class="btn btn-outline-primary" align="center"><a href="{% url 'trade' %}">Start Selling</a></button>
                 </div>
-              </td>
-              <td class="border-bottom-0">
-                <h6 class="fw-normal">12:00</h6>
-              </td>
-              <td class="border-bottom-0">
-                <button type="button" class="btn btn-outline-success m-1"><a href="{% url 'trade' %}">Trade</a></button>
-              </td>
-            </tr> 
-            <tr>
-              <td class="border-bottom-0"><h6 class="fw-normal">729341790</h6></td>
-              <td class="border-bottom-0">
-                <h6 class="fw-normal">400KW</h6>
-              </td>
-              <td class="border-bottom-0">
-                <h6 class="fw-normal">$3.9</h6>
-              </td>
-              <td class="border-bottom-0">
-                <div class="d-flex align-items-center gap-2">
-                  <span class="badge bg-primary rounded-3 fw-semibold">1 hour</span>
-                </div>
-              </td>
-              <td class="border-bottom-0">
-                <h6 class="fw-normal">12:00</h6>
-              </td>
-              <td class="border-bottom-0">
-                <button type="button" class="btn btn-outline-success m-1"><a href="{% url 'trade' %}">Trade</a></button>
-              </td>
-            </tr>     
-            <tr>
-              <td class="border-bottom-0"><h6 class="fw-normal">729341790</h6></td>
-              <td class="border-bottom-0">
-                <h6 class="fw-normal">400KW</h6>
-              </td>
-              <td class="border-bottom-0">
-                <h6 class="fw-normal">$3.9</h6>
-              </td>
-              <td class="border-bottom-0">
-                <div class="d-flex align-items-center gap-2">
-                  <span class="badge bg-primary rounded-3 fw-semibold">1 hour</span>
-                </div>
-              </td>
-              <td class="border-bottom-0">
-                <h6 class="fw-normal">12:00</h6>
-              </td>
-              <td class="border-bottom-0">
-                <button type="button" class="btn btn-outline-success m-1"><a href="{% url 'trade' %}">Trade</a></button>
-              </td>
-            </tr>                 
-          </tbody>
-        </table>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+
 
 {% endblock %}
