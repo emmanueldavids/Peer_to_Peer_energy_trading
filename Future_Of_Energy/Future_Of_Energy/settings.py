@@ -139,3 +139,4 @@ STATICFILES_DIRS = [
 ]
 
 
+AUTH_USER_MODEL = 'trade_dashboard.User'
