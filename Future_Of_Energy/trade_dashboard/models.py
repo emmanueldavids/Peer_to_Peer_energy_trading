@@ -1,7 +1,10 @@
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User, AbstractUser
+from django.db.models.signals import posts_save
+from django.dispatch import receiver
 from django.db import models
 import uuid
+
 
 """ Creating the class objects for the database and defining the schema.
     For this model file, we will create the object for wallet, payment, market_data,
@@ -12,18 +15,14 @@ import uuid
 class User(AbstractUser):
     """Customizing the User field to auto create the Wallet object anytime a new user is created """
     
-    # user_permissions = models.ManyToManyField(
-    #     'auth.Permission',
-    #     through='UserPermission',
-    #     verbose_name='User permissions',
-    #     blank=True,
-    #     related_name='trade_dashboard_users_permissions'
-    # )
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = ['email']
 
     def save(self, *args, **kwargs):
-        super.save(*args, **kwargs)
+        super(User, self).save(*args, **kwargs)
         if not self.pk:
             Wallet.objects.create(user=self)
+
 
 
 
@@ -44,15 +43,29 @@ class Wallet(models.Model):
         ('inactive', _('Inactive')),
         ('pending', _('Pending')),
     )
+
+    is_authenticated = True
+    REQUIRED_FIELDS = ('balance', 'currency')
+    USERNAME_FIELD = 'user'
+    
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     wallet_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    balance = models.DecimalField(max_digits=10, decimal_places=2)
-    previous_balance = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    balance = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    previous_balance = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     currency = models.CharField(max_length=3, choices=CURRENCY_CHOICES, default="BTC")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="pending"),
 
+
+
+    @property
+    def is_anonymous(self):
+        """
+        Always return False. This is a way of comparing User objects to
+        anonymous users.
+        """
+        return False
 
     def __repr__(self):
         """ This method returns a string representation of this instance"""
@@ -61,7 +74,9 @@ class Wallet(models.Model):
 
     def save(self, *args, **kwargs):
         """ This method calls and overwrites the save method with additional parameters """
-        
+        if not self.balance and not self.currency:
+            raise ValueError('balance and currency fields are required!')
+
         if not self.pk: # sets status to active once a new account is created
             self.status = 'active'
         
@@ -70,6 +85,6 @@ class Wallet(models.Model):
             if self.balance != previous_wallet.balance:
                 self.previous_balance = previous_wallet.balance
 
-        super().save(*args, **kwargs)
+        super(Wallet, self).save(*args, **kwargs)
 
 
