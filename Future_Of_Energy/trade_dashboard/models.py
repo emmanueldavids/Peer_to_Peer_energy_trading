@@ -1,7 +1,6 @@
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User, AbstractUser
-from django.db.models.signals import posts_save
-from django.dispatch import receiver
+import signal
 from django.db import models
 import uuid
 
@@ -20,9 +19,8 @@ class User(AbstractUser):
 
     def save(self, *args, **kwargs):
         super(User, self).save(*args, **kwargs)
-        if not self.pk:
+        if not hasattr(self, 'wallet'):
             Wallet.objects.create(user=self)
-
 
 
 
@@ -55,9 +53,8 @@ class Wallet(models.Model):
     currency = models.CharField(max_length=3, choices=CURRENCY_CHOICES, default="BTC")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="pending"),
-
-
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="pending")
+    
 
     @property
     def is_anonymous(self):
@@ -67,6 +64,7 @@ class Wallet(models.Model):
         """
         return False
 
+
     def __repr__(self):
         """ This method returns a string representation of this instance"""
         return f"<{self.wallet_id},{self.balance}, {self.previous_balance}, {self.currency}, {self.created_at}, {self.updated_at}, {self.status}>"
@@ -74,17 +72,20 @@ class Wallet(models.Model):
 
     def save(self, *args, **kwargs):
         """ This method calls and overwrites the save method with additional parameters """
+        created = self.pk
         if not self.balance and not self.currency:
             raise ValueError('balance and currency fields are required!')
 
-        if not self.pk: # sets status to active once a new account is created
+        if self.balance > 0 and self.status != 'active': # sets status to active once a new account is created
             self.status = 'active'
         
         else:
-            previous_wallet = Wallet.objects.get(pk=self.pk)
-            if self.balance != previous_wallet.balance:
-                self.previous_balance = previous_wallet.balance
-
-        super(Wallet, self).save(*args, **kwargs)
-
-
+            try:
+                previous_wallet = Wallet.objects.get(pk=self.pk)
+                if self.balance != previous_wallet.balance:
+                    self.previous_balance = previous_wallet.balance
+        
+            except Wallet.DoesNotExist:
+                pass
+        
+        super().save(*args, **kwargs)
