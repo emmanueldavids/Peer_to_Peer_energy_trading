@@ -1,3 +1,75 @@
+from django.utils.translation import gettext_lazy as _
+from django.contrib.auth.models import User, AbstractUser
 from django.db import models
+import uuid
 
-# Create your models here.
+""" Creating the class objects for the database and defining the schema.
+    For this model file, we will create the object for wallet, payment, market_data,
+    transactions and logs.
+"""
+
+
+class User(AbstractUser):
+    """Customizing the User field to auto create the Wallet object anytime a new user is created """
+    
+    # user_permissions = models.ManyToManyField(
+    #     'auth.Permission',
+    #     through='UserPermission',
+    #     verbose_name='User permissions',
+    #     blank=True,
+    #     related_name='trade_dashboard_users_permissions'
+    # )
+
+    def save(self, *args, **kwargs):
+        super.save(*args, **kwargs)
+        if not self.pk:
+            Wallet.objects.create(user=self)
+
+
+
+
+class Wallet(models.Model):
+    """ This class inheriting from the model object is responsible to create wallet table."""
+    
+    CURRENCY_CHOICES = (
+        ('USD', _('US Dollars')),
+        ('GHS', _('Ghana Cedis')),
+        ('EUR', _('Euro')),
+        ('GBP', _('British Pounds')),
+        ('BTC', _('Bit Coins'))
+    )
+
+    STATUS_CHOICES = (
+        ('active', _('Active')),
+        ('inactive', _('Inactive')),
+        ('pending', _('Pending')),
+    )
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    wallet_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    balance = models.DecimalField(max_digits=10, decimal_places=2)
+    previous_balance = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    currency = models.CharField(max_length=3, choices=CURRENCY_CHOICES, default="BTC")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="pending"),
+
+
+    def __repr__(self):
+        """ This method returns a string representation of this instance"""
+        return f"<{self.wallet_id},{self.balance}, {self.previous_balance}, {self.currency}, {self.created_at}, {self.updated_at}, {self.status}>"
+
+
+    def save(self, *args, **kwargs):
+        """ This method calls and overwrites the save method with additional parameters """
+        
+        if not self.pk: # sets status to active once a new account is created
+            self.status = 'active'
+        
+        else:
+            previous_wallet = Wallet.objects.get(pk=self.pk)
+            if self.balance != previous_wallet.balance:
+                self.previous_balance = previous_wallet.balance
+
+        super().save(*args, **kwargs)
+
+
