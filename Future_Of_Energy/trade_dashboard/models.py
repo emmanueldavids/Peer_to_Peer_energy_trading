@@ -102,6 +102,7 @@ class Transaction(models.Model):
     amount = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     start_time = models.TimeField()
     end_time = models.TimeField()
+    
 
 
     @property
