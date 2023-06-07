@@ -1,11 +1,11 @@
+import signal
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User, AbstractUser
-import signal
 from django.db import models
 import uuid
 
 
-""" Creating the class objects for the database and defining the schema.
+""" Creating the class objects for the database and defining the tables objects and relationship.
     For this model file, we will create the object for wallet, payment, market_data,
     transactions and logs.
 """
@@ -67,7 +67,7 @@ class Wallet(models.Model):
 
     def __repr__(self):
         """ This method returns a string representation of this instance"""
-        return f"<{self.wallet_id},{self.balance}, {self.previous_balance}, {self.currency}, {self.created_at}, {self.updated_at}, {self.status}>"
+        return f"<{self.wallet_id}>"
 
 
     def save(self, *args, **kwargs):
