@@ -117,6 +117,22 @@ class Transaction(models.Model):
 
 
     def __str__(self):
-        """ Returns a string representation of this object """
+        """ Returns a string representation of this instance """
 
         return f"<{self.transaction_id}>"
+    
+
+
+
+class Payment(models.Model):
+    """ This object will handle payments made from individual Wallet accounts."""
+
+    wallet = models.ForeignKey(Wallet, related_name="payments", on_delete=models.CASCADE)
+    payment_id = models.AutoField(primary_key=True, editable=False)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+
+    def __str__(self):
+        """ Return a string representation of this instance"""
+
+        return f"<{self.payment_id}, {self.timestamp}>"
