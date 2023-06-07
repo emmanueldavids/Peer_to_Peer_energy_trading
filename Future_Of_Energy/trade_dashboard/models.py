@@ -68,11 +68,13 @@ class Wallet(models.Model):
 
     def __repr__(self):
         """ This method returns a string representation of this instance"""
+        
         return f"<{self.wallet_id}>"
 
 
     def save(self, *args, **kwargs):
         """ This method calls and overwrites the save method with additional parameters """
+        
         created = self.pk
         if not self.balance and not self.currency:
             raise ValueError('balance and currency fields are required!')
@@ -150,8 +152,11 @@ class Logs(models.Model):
     payment = models.ForeignKey('Payment', on_delete=models.PROTECT)
     wallet = models.ForeignKey('Wallet', on_delete=models.PROTECT)
     user = models.ForeignKey(User, on_delete=models.PROTECT)
+    timestamp = models.DateTimeField(auto_now_add=True)
 
 
 
     def __str__(self):
+        """ Return a string representation of this instance """
+
         return f"Log ID: {self.log_id}"
