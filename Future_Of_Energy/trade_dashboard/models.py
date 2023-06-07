@@ -3,6 +3,7 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User, AbstractUser
 from django.db import models
 import uuid
+from datetime import timezone, datetime
 
 
 """ Creating the class objects for the database and defining the tables objects and relationship.
@@ -89,3 +90,33 @@ class Wallet(models.Model):
                 pass
         
         super().save(*args, **kwargs)
+
+
+
+class Transaction(models.Model):
+    """ This is the transaction object that will be handling the buying and selling."""
+
+    wallet = models.ForeignKey(Wallet, related_name="transactions", on_delete=models.CASCADE)
+    transaction_id = models.AutoField(primary_key=True, editable='False')
+    capacity = models.DecimalField(max_digits=10, decimal_places=1, default=0.0)
+    amount = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    start_time = models.TimeField()
+    end_time = models.TimeField()
+
+
+    @property
+    def count_down(self):
+        """ The count down method attribute returns the remaining time for the current transaction"""
+
+        now = datetime.datetime.now().time()
+        if self.end_time < now:
+            return datetime.datetime.combine(datetime.date.today() + datetime.timedelta(days=1), self.end_time) - datetime.datetime.combine(datetime.date.today(), now)
+        else:
+            return datetime.datetime.combine(datetime.date.today(), self.end_time) - datetime.datetime.combine(datetime.date.today(), now)
+
+
+
+    def __str__(self):
+        """ Returns a string representation of this object """
+
+        return f"<{self.transaction_id}>"
