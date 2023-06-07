@@ -96,7 +96,7 @@ class Wallet(models.Model):
 class Transaction(models.Model):
     """ This is the transaction object that will be handling the buying and selling."""
 
-    wallet = models.ForeignKey(Wallet, related_name="transactions", on_delete=models.CASCADE)
+    wallet = models.ForeignKey(Wallet, related_name="transactions", on_delete=models.PROTECT)
     transaction_id = models.AutoField(primary_key=True, editable='False')
     capacity = models.DecimalField(max_digits=10, decimal_places=1, default=0.0)
     amount = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
@@ -128,12 +128,30 @@ class Transaction(models.Model):
 class Payment(models.Model):
     """ This object will handle payments made from individual Wallet accounts."""
 
-    wallet = models.ForeignKey(Wallet, related_name="payments", on_delete=models.CASCADE)
+    wallet = models.ForeignKey(Wallet, related_name="payments", on_delete=models.PROTECT)
     payment_id = models.AutoField(primary_key=True, editable=False)
     timestamp = models.DateTimeField(auto_now_add=True)
+    transaction = models.ForeignKey(Transaction, related_name="payments", on_delete=models.PROTECT)
 
 
     def __str__(self):
         """ Return a string representation of this instance"""
 
         return f"<{self.payment_id}, {self.timestamp}>"
+
+
+
+
+class Logs(models.Model):
+    """ This class object logs all Wallet transactions and Payments"""
+
+    log_id = models.AutoField(primary_key=True)
+    transaction = models.ForeignKey('Transaction', on_delete=models.PROTECT)
+    payment = models.ForeignKey('Payment', on_delete=models.PROTECT)
+    wallet = models.ForeignKey('Wallet', on_delete=models.PROTECT)
+    user = models.ForeignKey(User, on_delete=models.PROTECT)
+
+
+
+    def __str__(self):
+        return f"Log ID: {self.log_id}"
