@@ -1,13 +1,14 @@
 from django import forms
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
-
+# from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 
 """ Importing and applying the form definitions for 
     User Creation, login and Authentication
 """
 
+User = get_user_model()
 
 class Signin_Form(forms.Form):
     """ This class represents the signin form for the user
