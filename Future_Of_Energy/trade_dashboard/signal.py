@@ -9,12 +9,17 @@ def create_user_wallet(sender, instance, created, **kwargs):
         Wallet.objects.get_or_create(user=instance)
 
 
-triggers = ['User', 'Wallet', 'Transaction', 'Payment']
 
-for trigger in triggers:
+@receiver(post_save, sender=User)
+@receiver(post_save, sender=Wallet)
+@receiver(post_save, sender=Transaction)
+@receiver(post_save, sender=Payment)
 
-    @receiver(post_save, sender=trigger)
-    def create_user_logs(sender, instance, created, **kwargs):
-        if created and not hasattr(instance, 'logs'):
-            Logs.objects.get_or_create(trigger=instance)
-
+def create_user_logs(sender, instance, created, **kwargs):
+    if created and not hasattr(instance, 'logs'):
+        Logs.objects.create(
+            transaction=instance if isinstance(instance, Transaction) else None,
+            payment=instance if isinstance(instance, Payment) else None,
+            wallet=instance if isinstance(instance, Wallet) else None,
+            user=instance if isinstance(instance, User) else None,
+        )
