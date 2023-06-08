@@ -55,7 +55,7 @@ def register(request):
                 messages.info(request, 'Invalid entries, try again')
 
         else:
-            messages.info(request, 'Invalid entries, try again!')
+            messages.info(request, 'Invalid entries or Passwords mismatch!')
     else:
         form = RegisterForm()
         # messages.info(request, 'Please enter your valid details!.')
